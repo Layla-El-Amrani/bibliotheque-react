@@ -1,0 +1,143 @@
+/* App.css */
+
+/* Corps de la page */
+body {
+  background-color: #f7f9fc;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+  margin-top: 50px;
+}
+
+/* En-tête */
+header {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Animation à l'apparition des éléments (cartes) */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre par défaut */
+  opacity: 0;
+  transform: translateY(20px); /* L'élément est légèrement déplacé vers le bas */
+  animation: fadeIn 0.5s ease-in-out forwards; /* Animation d'entrée */
+  transition: all 0.3s ease; /* Pour animer les transformations et les ombres */
+}
+
+/* Animation fadeIn pour l'apparition des éléments */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* L'élément commence en bas */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* L'élément devient visible et se place à sa position d'origine */
+  }
+}
+
+/* Effet mouse-in : agrandissement et changement d'ombre au survol */
+.list-group-item:hover {
+  background-color: #e9ecef; /* Légère couleur de fond au survol */
+  transform: scale(1.05); /* Agrandissement de la carte */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Ombre plus marquée au survol */
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet de survol pour les boutons "Emprunter" et "Rendre" */
+.btn, .button-rendre {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 5px;
+}
+
+/* Interaction sur les boutons au survol */
+.btn:hover, .button-rendre:hover {
+  background-color: #388e3c; /* Changer la couleur de fond au survol */
+  transform: scale(1.05); /* Légère mise en valeur */
+}
+
+/* Style pour les messages de succès */
+.message {
+  animation: slideIn 0.5s ease-in-out forwards;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Animation pour faire apparaître le message de succès */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Style pour les messages d'erreur */
+.message.error {
+  animation: slideInError 0.5s ease-in-out forwards;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Animation pour faire apparaître le message d'erreur */
+@keyframes slideInError {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Indicateur de chargement */
+.loading-indicator {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  margin-top: 10px;
+  animation: loadingPulse 1s infinite ease-in-out;
+}
+
+/* Animation pour l'indicateur de chargement */
+@keyframes loadingPulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
